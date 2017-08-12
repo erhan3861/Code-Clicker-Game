@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<script type="text/javascript">
+//Updates everything
+	function update(){
+				//Shows how much code you have
+				document.getElementById("amount").value = codeAmount;
+				//Shows the code in the title tab
+				document.title = codeAmount + " Codes"
+				//Shows how many helpers you have
+				document.getElementById("helperAmount").innerHTML = "You have " + codeHelper + " helpers."
+				//Updates the cost of the helpers
+				document.getElementById("helperCost").innerHTML = "Code: " + ((codeHelper+1)*50);
+				//Shows how many tutors you have
+				document.getElementById("tutorAmount").innerHTML = "You have " + codeTutors  + " tutors.";
+				//shows the cost of the tutors
+				document.getElementById("tutorCost").innerHTML = "Code: " + ((codeTutors+1)*100);
+				//Shows the next multiplier upgrade
+				document.getElementById("multiplierAmmount").innerHTML = "Upgrade Multiplier to X" + (multiplier+1);
+				//Ammount of multipliers in the button
+				document.getElementById("multiplierAmmount2").innerHTML = "X" + (multiplier+1);
+				//Cost of multiplers
+				document.getElementById("MultiplierCost").innerHTML = "Code: " + ((multiplier)*200);
+				//Your current multiplier
+				document.getElementById("MultiplierCurrent").innerHTML = "The current multiplier is X" + (multiplier);
+				//The cost of the class
+				document.getElementById("classCost").innerHTML = "Code: " + ((clickerMult*1)*500);
+				//How many classes youve taken
+				document.getElementById("classAmount").innerHTML = "You have taken " + (clickerMult) + " classes."
+				//Your clicking multiplier
+				document.getElementById("clickMult").innerHTML = "You have a clicking multiplier of X" + (clickerMult);
+				//Shows how many teachers you have
+				document.getElementById("teacherCost").innerHTML = "Code: " + ((codeTeachers+1)*250);
+				//Shows the cost of the teachers
+				document.getElementById("teacherAmount").innerHTML = "You have " + (codeTeachers) + " teachers.";
+				//Shows the cost of professors
+				document.getElementById("profCost").innerHTML = "Code: " + ((codeProf+1)*500);
+				//Shows the amount of professors
+				document.getElementById("profAmount").innerHTML = "You have " + (codeProf) + " professors";
+				//Shows the amount of prodigies
+				document.getElementById("prodigyAmount").innerHTML = "You have " + (codeProdigy) + " prodigies";
+				//Shows the cost of prodigies
+				document.getElementById("prodigyCost").innerHTML = "Code: " + ((codeProdigy+1)*1000); 
+					//Shows your code per second
+				document.getElementById("codePerSecond").innerHTML = "You currently get " + (((codeHelper) + (codeTutors*2) + (codeTeachers*5) + (codeProf*10) + (codeProdigy*20))* multiplier) + " code per/s";
+				//Shows your code per click
+				document.getElementById("codePerClick").innerHTML = "You get " + (codeClick) + " code per click";
+			} 
+//variable for upgrades and currencies
+	var clickerMult = 1;
+	var multiplier = 1;
+	var codeAmount = 0;
+	var codeHelper = 0;
+	var codeTutors = 0;
+	var codeTeachers = 0;
+	var codeProf = 0;
+	var codeProdigy = 0;
+	var codeClick = 1;
+//Allows the upgrades to work
+	function timer(){
+		codeAmount = codeAmount + codeHelper*multiplier;
+		codeAmount = codeAmount + codeTutors*2*multiplier;
+		codeAmount = codeAmount + codeTeachers*5*multiplier;
+		codeAmount = codeAmount + codeProf*10*multiplier;
+		codeAmount = codeAmount + codeProdigy*20*multiplier;
+		update()
+	}
+//updates the page every second to increase code amount
+	setInterval(timer, 1000);
+
+</script>
+<html>
+	<head>
+		<title>0 Codes</title>
+		<link rel="stylesheet" type="text/css" href="clickerGame2.css">
+	</head>
+	<body>
+
+		<h1>Click to get JavaScript code!</h1>
+
+		<h2>Use your code to get upgrades!</h2>
+
+		<p id="codePerSecond">You currently get 0 code per/s</p>
+
+		<p id="codePerClick">You get 1 code per click</p>
+		<br>
+
+		<!--The clickable js logo-->
+		<a href=# onclick="addJS()"><img src="https://i.stack.imgur.com/Mmww2.png" alt="JS Logo" width="125" height="125" class="pulse"></a>
+
+		<br><br>
+		You Have:
+		<!--Shows how much code you have-->
+		<input type="text" id="amount" disabled style>
+		<script type="text/javascript">
+		//Adds "code" per click
+			function addJS(){
+				codeAmount = codeAmount + 1 * clickerMult;
+			  update()
+			}
+
+		</script>
+		lines of code.
+		<br><br>
+		<!--Button for saving-->
+		<button><a href=# onclick="saveCode()" class="white">Save!</a></button>
+		<!--Button for loading-->
+		<button><a href=# onclick="loadCode()"class="white">Load!</a></button>
+		<br><br>
+		<!--Mulitplier upgrade-->
+		<p id="multiplierAmmount">Upgrade Multiplier to X2</p>
+
+		<p id="MultiplierCost">Code: 200</p>
+
+		<p id="MultiplierCurrent">The current multiplier is X1</p>
+		<!--Allows for purchase of the mulitiplier upgrade-->
+		<button><a href=# onclick="buyMult()"><span id="multiplierAmmount2">X2</span></a></button>
+		<!--Helper upgrade-->
+		<p>Pay someone to help code!</p>
+
+		<p id="helperCost">Code: 12</p>
+
+		<p id="helperAmount">You have 0 helpers.</p>
+		<!--Purchases a helper-->
+		<button><a href=# onclick="buyHelper()">Helper</a></button>
+		<!--Tutor upgrade-->
+		<p>Pay a tutor to help code!</p>
+
+		<p id="tutorCost" class="besideHelp">Code: 30</p>
+
+		<p id="tutorAmount" class="besideHelp">You have 0 tutors.</p>
+
+		<!--Purchases a tutor-->
+		<button class="besideHelp"><a href=# onclick="buyTutor()">Tutor</a></button>
+		<!--Teacher upgrade-->
+		<p>Pay a teacher to help code!</p>
+
+		<p id="teacherCost">Code: 100</p>
+
+		<p id="teacherAmount">You have 0 teachers</p>
+
+		<!--Buys a teacher-->
+		<button><a href=# onclick="buyTeacher()">Teacher</a></button>
+		<!--Purchase a professor-->
+		<p>Pay a professor to help you!</p>
+
+		<p id="profCost">Code: 250</p>
+
+		<p id="profAmount">You have 0 professors</p>
+
+		<button><a href=# onclick="buyProf()">Professor</a></button>
+		<!--Prodigy upgrade-->
+		<p>Pay a coding prodigy to help you!</p>
+
+		<p id="prodigyCost">Code: 1000</p>
+
+		<p id="prodigyAmount">You have 0 prodigies</p>
+
+		<button><a href=# onclick="buyProdigy()">Prodigy</a></button>
+
+		<!--Class upgrade-->
+		<p id="classCost">Code: 500</p>
+
+		<p id="classAmount">You have taken 1 classes</p>
+
+		<p id="clickMult">You have a clicking multiplier of X1</p>
+
+		<!--Pays for a class-->
+		<button><a href=# onclick="takeClass()">Class</a></button>
+
+		<script type="text/javascript">
+			//saves your progress
+			function saveCode(){
+				//Saves the amount of code you have
+				localStorage.setItem("codeAmount", codeAmount);
+				//Saves your helpers
+				localStorage.setItem("codeHelper", codeHelper);
+				//saves your tutors
+				localStorage.setItem("codeTutors", codeTutors);
+				//saves your multiplier
+				localStorage.setItem("multiplier", multiplier);
+				//saves your clicking multiplier
+				localStorage.setItem("clickerMult", clickerMult);
+				//Saves your teachers
+				localStorage.setItem("codeTeachers", codeTeachers);
+				//Saves professors
+				localStorage.setItem("codeProf", codeProf);
+				//Saves prodigies
+				localStorage.setItem("codeProdigy", codeProdigy);
+				//Saves code per click
+				localStorage.setItem("codeClick", codeClick);
+			}
+			//Loads progress
+			function loadCode(){
+				//loads the amount of code you have
+				codeAmount = localStorage.getItem("codeAmount");
+				codeAmount = parseInt(codeAmount);
+				//loads the amount of helpers
+				codeHelper = localStorage.getItem("codeHelper");
+				codeHelper = parseInt(codeHelper);
+				//loads your tutors
+				codeTutors = localStorage.getItem("codeTutors");
+				codeTutors = parseInt(codeTutors);
+				//loads your multipliers
+				multiplier = localStorage.getItem("multiplier");
+				multiplier = parseInt(multiplier);
+				//loads your clicking multiplier
+				clickerMult = localStorage.getItem("clickerMult");
+				clickerMult = parseInt(clickerMult);
+				//Loads your teachers
+				codeTeachers = localStorage.getItem("codeTeachers");
+				codeTeachers = parseInt(codeTeachers);
+				//Loads professors
+				codeProf = localStorage.getItem("codeProf");
+				codeProf = parseInt(codeProf);
+				//loads prodigies
+				codeProdigy = localStorage.getItem("codeProdigy");
+				codeProdigy = parseInt(codeProdigy);
+				//Loads code per click
+				codeClick = localStorage.getItem("codeClick");
+				codeClick = parseInt(codeClick);
+				//updates the page
+				update()
+			}
+			//Allows for the purchase of the helper
+			function buyHelper(){
+    		if (codeAmount >= ((codeHelper+1)*50)) {
+        		codeAmount = codeAmount - ((codeHelper+1)*50);
+       			 codeHelper = codeHelper + 1;
+       			 update();
+    			}
+			}
+			//Allows for the purchase of the tutor
+			function buyTutor(){
+				if (codeAmount >= ((codeTutors+1))*100) {
+					codeAmount = codeAmount - ((codeTutors+1)*100);
+					codeTutors = codeTutors + 1;
+					update()
+				}
+			}
+			//Allows for the purchase of the multiplier
+			function buyMult(){
+				if (codeAmount >= ((multiplier*1)*200)) {
+					codeAmount = codeAmount - ((multiplier*1)*200);
+					multiplier = multiplier + 1;
+					update()
+				}
+			}
+			//Allows for the purchase of the teacher
+			function buyTeacher(){
+				if (codeAmount >= ((codeTeachers+1)*250)) {
+					codeAmount = codeAmount - ((codeTeachers+1)*250);
+					codeTeachers = codeTeachers + 1;
+					update()
+				}
+			}
+			//Allows for the purchase of proffessor
+			function buyProf(){
+				if (codeAmount >= ((codeProf+1)*500)){
+					codeAmount = codeAmount - ((codeProf+1)*500);
+					codeProf = codeProf + 1;
+					update()
+				}
+			}
+			//Allows for the prodigy upgrade
+			function buyProdigy(){
+				if (codeAmount >= ((codeProdigy+1)*1000)) {
+					codeAmount = codeAmount - ((codeProdigy+1)*1000);
+					codeProdigy = codeProdigy + 1;
+					update()
+				}
+			}
+			//Allows for the purchase of the class
+			function takeClass(){
+				if (codeAmount >= ((clickerMult*1)*500)) {
+					codeAmount = codeAmount - ((clickerMult*1)*500);
+					clickerMult = clickerMult +  1;
+					codeClick = codeClick + 1;
+					update()
+				}
+			}
+
+		</script>
+		<footer>
+			<h4>Version 1.1.1</h4>
+			<p><a href="https://github.com/NukeReactor/Code-Clicker-Game/blob/master/Changelog.md" class="changlog">See Changlog here!</a></p>
+		</footer>
+	</body>
+</html>

@@ -1,4 +1,5 @@
-<b>Changelog</b>
+<b>Changelog</b><br />
+
 Version 1.1.1<br />
 •Added a code per click indicator in the top<br />
 •Added tiny bits of detail in the css such as gradients and rounding the edges of the js logo.<br />

@@ -1,7 +1,7 @@
 <b>Changelog</b><br />
 
 Version 1.2.1<br />
-•Added one new upgrade: The Master!<br /?
+•Added one new upgrade: The Master!<br />
 •A tad bit of balancing (more to be done)<br />
 •Minor improvements<br />
 

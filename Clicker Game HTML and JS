@@ -40,10 +40,14 @@
 				document.getElementById("prodigyAmount").innerHTML = "You have " + (codeProdigy) + " prodigies";
 				//Shows the cost of prodigies
 				document.getElementById("prodigyCost").innerHTML = "Code: " + ((codeProdigy+1)*1000); 
-					//Shows your code per second
-				document.getElementById("codePerSecond").innerHTML = "You currently get " + (((codeHelper) + (codeTutors*2) + (codeTeachers*5) + (codeProf*10) + (codeProdigy*20))* multiplier) + " code per/s";
+				//Shows the cost of the master
+				document.getElementById("masterCost").innerHTML = "Code: " + ((codeMaster+1)*2500);
+				//Shows the amount of masters
+				document.getElementById("masterAmount").innerHTML = "You have " + (codeMaster) + " masters";
 				//Shows your code per click
 				document.getElementById("codePerClick").innerHTML = "You get " + (codeClick) + " code per click";
+				//Shows your code per second
+				document.getElementById("codePerSecond").innerHTML = "You currently get " + (((codeHelper) + (codeTutors*2) + (codeTeachers*5) + (codeProf*10) + (codeProdigy*20) + (codeMaster*40))* multiplier) + " code per/s";
 			} 
 //variable for upgrades and currencies
 	var clickerMult = 1;
@@ -55,6 +59,7 @@
 	var codeProf = 0;
 	var codeProdigy = 0;
 	var codeClick = 1;
+	var codeMaster = 0;
 //Allows the upgrades to work
 	function timer(){
 		codeAmount = codeAmount + codeHelper*multiplier;
@@ -62,6 +67,7 @@
 		codeAmount = codeAmount + codeTeachers*5*multiplier;
 		codeAmount = codeAmount + codeProf*10*multiplier;
 		codeAmount = codeAmount + codeProdigy*20*multiplier;
+		codeAmount = codeAmount + codeMaster*40*multiplier;
 		update()
 	}
 //updates the page every second to increase code amount
@@ -114,6 +120,17 @@
 		<p id="MultiplierCurrent">The current multiplier is X1</p>
 		<!--Allows for purchase of the mulitiplier upgrade-->
 		<button><a href=# onclick="buyMult()"><span id="multiplierAmmount2">X2</span></a></button>
+
+		<!--Class upgrade-->
+		<p id="classCost">Code: 500</p>
+
+		<p id="classAmount">You have taken 1 classes</p>
+
+		<p id="clickMult">You have a clicking multiplier of X1</p>
+
+		<!--Pays for a class-->
+		<button><a href=# onclick="takeClass()">Class</a></button>
+
 		<!--Helper upgrade-->
 		<p>Pay someone to help code!</p>
 
@@ -157,16 +174,16 @@
 
 		<button><a href=# onclick="buyProdigy()">Prodigy</a></button>
 
-		<!--Class upgrade-->
-		<p id="classCost">Code: 500</p>
+		<!--Master upgrade-->
+		<p>Pay a master coder to help you!</p>
 
-		<p id="classAmount">You have taken 1 classes</p>
+		<p id="masterCost">Code: 2500</p>
 
-		<p id="clickMult">You have a clicking multiplier of X1</p>
+		<p id="masterAmount">You have 0 masters</p>
 
-		<!--Pays for a class-->
-		<button><a href=# onclick="takeClass()">Class</a></button>
+		<button><a href=# onclick="buyMaster()">Master</a></button>
 
+		<!--Code for saving-->
 		<script type="text/javascript">
 			//saves your progress
 			function saveCode(){
@@ -188,6 +205,8 @@
 				localStorage.setItem("codeProdigy", codeProdigy);
 				//Saves code per click
 				localStorage.setItem("codeClick", codeClick);
+				//Saves master
+				localStorage.setItem("codeMaster", codeMaster);
 			}
 			//Loads progress
 			function loadCode(){
@@ -218,6 +237,9 @@
 				//Loads code per click
 				codeClick = localStorage.getItem("codeClick");
 				codeClick = parseInt(codeClick);
+				//Loads masters
+				codeMaster = localStorage.getItem("codeMaster");
+				codeMaster = parseInt(codeMaster);
 				//updates the page
 				update()
 			}
@@ -253,7 +275,7 @@
 					update()
 				}
 			}
-			//Allows for the purchase of proffessor
+			//Allows for the purchase of professor
 			function buyProf(){
 				if (codeAmount >= ((codeProf+1)*500)){
 					codeAmount = codeAmount - ((codeProf+1)*500);
@@ -269,6 +291,14 @@
 					update()
 				}
 			}
+			//Allows for the purchase of the master
+			function buyMaster() {
+				if (codeAmount >= ((codeMaster+1)*2500)) {
+					codeAmount = codeAmount - ((codeMaster+1)*2500);
+					codeMaster = codeMaster + 1;
+					update()
+				}
+			}
 			//Allows for the purchase of the class
 			function takeClass(){
 				if (codeAmount >= ((clickerMult*1)*500)) {
@@ -281,7 +311,7 @@
 
 		</script>
 		<footer>
-			<h4>Version 1.1.1</h4>
+			<h4>Version 1.2.1</h4>
 			<p><a href="https://github.com/NukeReactor/Code-Clicker-Game/blob/master/Changelog.md" class="changlog">See Changlog here!</a></p>
 		</footer>
 	</body>

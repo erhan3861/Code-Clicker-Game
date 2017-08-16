@@ -2,54 +2,56 @@
 <script type="text/javascript">
 //Updates everything
 	function update(){
-				//Shows how much code you have
-				document.getElementById("amount").value = codeAmount;
-				//Shows the code in the title tab
-				document.title = codeAmount + " Codes"
-				//Shows how many helpers you have
-				document.getElementById("helperAmount").innerHTML = "You have " + codeHelper + " helpers."
-				//Updates the cost of the helpers
-				document.getElementById("helperCost").innerHTML = "Code: " + ((codeHelper+1)*50);
-				//Shows how many tutors you have
-				document.getElementById("tutorAmount").innerHTML = "You have " + codeTutors  + " tutors.";
-				//shows the cost of the tutors
-				document.getElementById("tutorCost").innerHTML = "Code: " + ((codeTutors+1)*100);
-				//Shows the next multiplier upgrade
-				document.getElementById("multiplierAmmount").innerHTML = "Upgrade Multiplier to X" + (multiplier+1);
-				//Ammount of multipliers in the button
-				document.getElementById("multiplierAmmount2").innerHTML = "X" + (multiplier+1);
-				//Cost of multiplers
-				document.getElementById("MultiplierCost").innerHTML = "Code: " + ((multiplier)*200);
-				//Your current multiplier
-				document.getElementById("MultiplierCurrent").innerHTML = "The current multiplier is X" + (multiplier);
-				//The cost of the class
-				document.getElementById("classCost").innerHTML = "Code: " + ((clickerMult*1)*500);
-				//How many classes youve taken
-				document.getElementById("classAmount").innerHTML = "You have taken " + (clickerMult) + " classes."
-				//Your clicking multiplier
-				document.getElementById("clickMult").innerHTML = "You have a clicking multiplier of X" + (clickerMult);
-				//Shows how many teachers you have
-				document.getElementById("teacherCost").innerHTML = "Code: " + ((codeTeachers+1)*250);
-				//Shows the cost of the teachers
-				document.getElementById("teacherAmount").innerHTML = "You have " + (codeTeachers) + " teachers.";
-				//Shows the cost of professors
-				document.getElementById("profCost").innerHTML = "Code: " + ((codeProf+1)*500);
-				//Shows the amount of professors
-				document.getElementById("profAmount").innerHTML = "You have " + (codeProf) + " professors";
-				//Shows the amount of prodigies
-				document.getElementById("prodigyAmount").innerHTML = "You have " + (codeProdigy) + " prodigies";
-				//Shows the cost of prodigies
-				document.getElementById("prodigyCost").innerHTML = "Code: " + ((codeProdigy+1)*1000); 
-				//Shows the cost of the master
-				document.getElementById("masterCost").innerHTML = "Code: " + ((codeMaster+1)*2500);
-				//Shows the amount of masters
-				document.getElementById("masterAmount").innerHTML = "You have " + (codeMaster) + " masters";
-				//Shows your code per click
-				document.getElementById("codePerClick").innerHTML = "You get " + (codeClick) + " code per click";
-				//Shows your code per second
-				document.getElementById("codePerSecond").innerHTML = "You currently get " + (((codeHelper) + (codeTutors*2) + (codeTeachers*5) + (codeProf*10) + (codeProdigy*20) + (codeMaster*40))* multiplier) + " code per/s";
+			//Shows how much code you have
+			document.getElementById("amount").value = codeAmount;
+			//Shows the code in the title tab
+			document.title = codeAmount + " Codes"
+			//Shows how many helpers you have
+			document.getElementById("helperAmount").innerHTML = "You have " + codeHelper + " helpers."
+			//Updates the cost of the helpers
+			document.getElementById("helperCost").innerHTML = "Code: " + ((codeHelper+1)*50);
+			//Shows how many tutors you have
+			document.getElementById("tutorAmount").innerHTML = "You have " + codeTutors  + " tutors.";
+			//shows the cost of the tutors
+			document.getElementById("tutorCost").innerHTML = "Code: " + ((codeTutors+1)*100);
+			//Shows the next multiplier upgrade
+			document.getElementById("multiplierAmmount").innerHTML = "Upgrade Multiplier to X" + (multiplier+1);
+			//Ammount of multipliers in the button
+			document.getElementById("multiplierAmmount2").innerHTML = "X" + (multiplier+1);
+			//Cost of multiplers
+			document.getElementById("MultiplierCost").innerHTML = "Code: " + ((multiplier)*750);
+			//Your current multiplier
+			document.getElementById("MultiplierCurrent").innerHTML = "The current multiplier is X" + (multiplier);
+			//The cost of the class
+			document.getElementById("classCost").innerHTML = "Code: " + ((clickerMult*1)*500);
+			//How many classes youve taken
+			document.getElementById("classAmount").innerHTML = "You have taken " + (clickerMult) + " classes."
+			//Your clicking multiplier
+			document.getElementById("clickMult").innerHTML = "You have a clicking multiplier of X" + (clickerMult);
+			//Shows how many teachers you have
+			document.getElementById("teacherCost").innerHTML = "Code: " + ((codeTeachers+1)*250);
+			//Shows the cost of the teachers
+			document.getElementById("teacherAmount").innerHTML = "You have " + (codeTeachers) + " teachers.";
+			//Shows the cost of professors
+			document.getElementById("profCost").innerHTML = "Code: " + ((codeProf+1)*500);
+			//Shows the amount of professors
+			document.getElementById("profAmount").innerHTML = "You have " + (codeProf) + " professors";
+			//Shows the amount of prodigies
+			document.getElementById("prodigyAmount").innerHTML = "You have " + (codeProdigy) + " prodigies";
+			//Shows the cost of prodigies
+			document.getElementById("prodigyCost").innerHTML = "Code: " + ((codeProdigy+1)*1000); 
+			//Shows the cost of the master
+			document.getElementById("masterCost").innerHTML = "Code: " + ((codeMaster+1)*2500);
+			//Shows the amount of masters
+			document.getElementById("masterAmount").innerHTML = "You have " + (codeMaster) + " masters";
+			//Shows your code per click
+			document.getElementById("codePerClick").innerHTML = "You get " + (codeClick) + " code per click";
+			//Shows your code per second
+			document.getElementById("codePerSecond").innerHTML = "You currently get " + (((codeHelper) + (codeTutors*2) + (codeTeachers*5) + (codeProf*10) + (codeProdigy*20) + (codeMaster*40))* multiplier) + " code per/s";
 			} 
 //variable for upgrades and currencies
+	var codeSound = new Audio("beep.wav");
+	var save_loadBeep = new Audio("blop.wav");
 	var clickerMult = 1;
 	var multiplier = 1;
 	var codeAmount = 0;
@@ -115,7 +117,7 @@
 		<!--Mulitplier upgrade-->
 		<p id="multiplierAmmount">Upgrade Multiplier to X2</p>
 
-		<p id="MultiplierCost">Code: 200</p>
+		<p id="MultiplierCost">Code: 750</p>
 
 		<p id="MultiplierCurrent">The current multiplier is X1</p>
 		<!--Allows for purchase of the mulitiplier upgrade-->
@@ -134,7 +136,7 @@
 		<!--Helper upgrade-->
 		<p>Pay someone to help code!</p>
 
-		<p id="helperCost">Code: 12</p>
+		<p id="helperCost">Code: 50</p>
 
 		<p id="helperAmount">You have 0 helpers.</p>
 		<!--Purchases a helper-->
@@ -142,7 +144,7 @@
 		<!--Tutor upgrade-->
 		<p>Pay a tutor to help code!</p>
 
-		<p id="tutorCost" class="besideHelp">Code: 30</p>
+		<p id="tutorCost" class="besideHelp">Code: 100</p>
 
 		<p id="tutorAmount" class="besideHelp">You have 0 tutors.</p>
 
@@ -187,6 +189,7 @@
 		<script type="text/javascript">
 			//saves your progress
 			function saveCode(){
+				save_loadBeep.play();
 				//Saves the amount of code you have
 				localStorage.setItem("codeAmount", codeAmount);
 				//Saves your helpers
@@ -210,6 +213,7 @@
 			}
 			//Loads progress
 			function loadCode(){
+				save_loadBeep.play();
 				//loads the amount of code you have
 				codeAmount = localStorage.getItem("codeAmount");
 				codeAmount = parseInt(codeAmount);
@@ -248,6 +252,7 @@
     		if (codeAmount >= ((codeHelper+1)*50)) {
         		codeAmount = codeAmount - ((codeHelper+1)*50);
        			 codeHelper = codeHelper + 1;
+       			codeSound.play();
        			 update();
     			}
 			}
@@ -256,14 +261,16 @@
 				if (codeAmount >= ((codeTutors+1))*100) {
 					codeAmount = codeAmount - ((codeTutors+1)*100);
 					codeTutors = codeTutors + 1;
+					codeSound.play();
 					update()
 				}
 			}
 			//Allows for the purchase of the multiplier
 			function buyMult(){
-				if (codeAmount >= ((multiplier*1)*200)) {
+				if (codeAmount >= ((multiplier*1)*750)) {
 					codeAmount = codeAmount - ((multiplier*1)*200);
 					multiplier = multiplier + 1;
+					codeSound.play();
 					update()
 				}
 			}
@@ -272,6 +279,7 @@
 				if (codeAmount >= ((codeTeachers+1)*250)) {
 					codeAmount = codeAmount - ((codeTeachers+1)*250);
 					codeTeachers = codeTeachers + 1;
+					codeSound.play();
 					update()
 				}
 			}
@@ -280,6 +288,7 @@
 				if (codeAmount >= ((codeProf+1)*500)){
 					codeAmount = codeAmount - ((codeProf+1)*500);
 					codeProf = codeProf + 1;
+					codeSound.play();
 					update()
 				}
 			}
@@ -288,6 +297,7 @@
 				if (codeAmount >= ((codeProdigy+1)*1000)) {
 					codeAmount = codeAmount - ((codeProdigy+1)*1000);
 					codeProdigy = codeProdigy + 1;
+					codeSound.play();
 					update()
 				}
 			}
@@ -296,6 +306,7 @@
 				if (codeAmount >= ((codeMaster+1)*2500)) {
 					codeAmount = codeAmount - ((codeMaster+1)*2500);
 					codeMaster = codeMaster + 1;
+					codeSound.play();
 					update()
 				}
 			}
@@ -305,13 +316,14 @@
 					codeAmount = codeAmount - ((clickerMult*1)*500);
 					clickerMult = clickerMult +  1;
 					codeClick = codeClick + 1;
+						codeSound.play();
 					update()
 				}
 			}
 
 		</script>
 		<footer>
-			<h4>Version 1.2.1</h4>
+			<h4>Version 1.2.2</h4>
 			<p><a href="https://github.com/NukeReactor/Code-Clicker-Game/blob/master/Changelog.md" class="changlog">See Changlog here!</a></p>
 		</footer>
 	</body>

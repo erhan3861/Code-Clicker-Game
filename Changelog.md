@@ -1,5 +1,9 @@
 <b>Changelog</b><br />
 
+Version 1.3.2<br />
+•Added a buy 5 button to each upgrade!<br />
+•Uploaded it to newgrounds! (link in code)<br />
+
 Version 1.2.2<br />
 •New sounds<br />
 •Bug fixes<br />

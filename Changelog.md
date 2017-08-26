@@ -1,5 +1,8 @@
 <b>Changelog</b><br />
 
+Version 1.3.4<br />
+•Minor bug fixes
+
 Version 1.3.3<br />
 •Added background music!
 •Added pause and unpause for music

@@ -1,5 +1,9 @@
 <b>Changelog</b><br />
 
+Version 1.3.3<br />
+•Added background music!
+•Added pause and unpause for music
+
 Version 1.3.2<br />
 •Added a buy 5 button to each upgrade!<br />
 •Uploaded it to newgrounds! (link in code)<br />

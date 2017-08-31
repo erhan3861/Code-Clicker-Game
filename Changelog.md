@@ -1,5 +1,8 @@
 <b>Changelog</b><br />
 
+Version 1.3.5<br />
+•Firefox support
+
 Version 1.3.4<br />
 •Minor bug fixes
 

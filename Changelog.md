@@ -1,5 +1,9 @@
 <b>Changelog</b><br />
 
+Version 1.3.6<br />
+•New dropdown upgrades tab<br />
+•An upgrade description for each upgrade<br />
+
 Version 1.3.5<br />
 •Firefox support
 

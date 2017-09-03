@@ -1,5 +1,9 @@
 <b>Changelog</b><br />
 
+Version 1.4.0<br />
+•Added one final upgrade<br />
+I have decided to stop developing this game and will move onto something different<br />
+
 Version 1.3.6<br />
 •New dropdown upgrades tab<br />
 •An upgrade description for each upgrade<br />

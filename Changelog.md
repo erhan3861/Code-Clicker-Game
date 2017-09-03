@@ -2,7 +2,8 @@
 
 Version 1.4.0<br />
 •Added one final upgrade<br />
-I have decided to stop developing this game and will move onto something different<br />
+I have decided to stop developing this game and will move onto something different. If I really feel like it, or I get a good idea,<br />
+I might add it. But for the most part this game is done.<br />
 
 Version 1.3.6<br />
 •New dropdown upgrades tab<br />
